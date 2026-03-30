@@ -218,14 +218,8 @@ variable "log_driver" {
 }
 
 variable "fluentd_address" {
-  type        = string
-  description = "Fluentd/Fluent Bit forward input address (only for fluentd driver)"
-  default     = "127.0.0.1:24224"
-
-  validation {
-    condition     = var.log_driver != "fluentd" || length(var.fluentd_address) > 0
-    error_message = "fluentd_address must be provided when log_driver = fluentd"
-  }
+  type    = string
+  default = "127.0.0.1:24224"
 }
 
 variable "fluentd_tag" {
